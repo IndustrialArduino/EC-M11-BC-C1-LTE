@@ -12,7 +12,7 @@
 #define DIGITAL_IN1 35
 #define I2C_SCL 17
 #define I2C_SDA 16
-#define ADS1115_INT 18
+#define ADS1115_INT 21
 
 Adafruit_ADS1115 ads1;
 
@@ -38,7 +38,7 @@ void setup() {
   pinMode(36, INPUT);    // Analog input
   pinMode(13, OUTPUT);    // 12V boosted output enable
 
-  pinMode(GSM_PWR, OUTPUT);    // 12V boosted output enable
+  pinMode(GSM_PWR, OUTPUT);    
   pinMode(GSM_RST, OUTPUT);    // SIM7000 Power - only on LTE version
 
   digitalWrite(GSM_RST, HIGH);
@@ -75,8 +75,8 @@ void setup() {
 }
 
 void loop() {
-  Serial.print("I1: ");Serial.println(digitalRead(34));
-  digitalWrite(18,HIGH);
+  Serial.print("I1: ");Serial.println(digitalRead(35));
+  digitalWrite(13,HIGH);
 
   int16_t adc0, adc1, adc2, adc3;
   adc0 = ads1.readADC_SingleEnded(0);
